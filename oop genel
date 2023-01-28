@@ -1,0 +1,90 @@
+/*
+
+    -- OOP (NESNE YÖNELİMLİ PROGRAMLAMA) --
+    1-Encapsulation
+    2-Inheritance
+    3-Polymorphism
+    4-Abstract - ınterface
+
+    -- constructor --
+    bir sınıftan bir obje oluşturulduğunda ilk çağrılacak metoddur.
+
+    -- Encapsulation --
+    ayrı bir sınıf içerisinde oluşturduğumuz değişkenlerimize başka sınıflardan erişilmesini engellemek amacıyla encapsulation kullanılır.
+    değişken, ""private int age;"" olarak tanımlanır. ve age değişkeninin getter ve setter metodları oluşturulur.
+    dışardan başka bir sınıftan sadece getter ve setter metodları ile bu değişkenlere ulaşılabilir.
+    sadece getter metodlarını oluşturursak bu değişkenleri değiştiremeyiz sadece okuyabiliriz.
+    sadece setter metodlarını oluşturursak bu değişkenleri değiştirebiliriz fakat okuyamayız.
+
+    -- Inheritance (miras almak) __
+    bir sınıfın bütün değişken ve metodlarını başka bir sınıf kullanabilsin diye miras vermesidir.
+    ""extends"" anahtar kelime. ""super"" referans olarak miras alınan sınıfı referans alır.
+
+    -- Overriding (aşırı yükleme) (statik polymoprhism) --
+    bir sınıfta "aynı isimle tanımlanmış metodlar" olabilir. faka bu metodlarn hepsi farklı iş yapıyor.
+
+    -- Dinamik Polymorphism --
+
+    -- Absract (Sout snıf) --
+    içerisinde obje oluşturmak yerine başka sınıflara extends edilebilsin diye oluşturulan sınıflardır. içinde tanımlanan metod boştur.
+    sadece başka bir alt sınıf o metodu kullanabilsin diye o boş metodun tanımlanması gerekir.
+    oluştrdugun abstract sınıfı obje gibi new leyemezsin.
+
+    Java’da soyutlama, gereksiz ayrıntıları göz ardı ederek bir nesnenin yalnızca gerekli özelliklerini belirleme işlevi
+    olarak da nitelendirilebilir. Bir bilgisayarı kullanan bir kişiyi düşünün, bilgisayarı kullanan kişi yalnızca
+    bilgisayarı kullanır ancak arka planda ne gibi işlemlerin döndüğünü bilemez. Soyutlama aslında budur.
+    Java’da soyutlama işlemini yapmak için soyut sınıf (abstract class) ve arayüzler (interface) yapılarını kullanırız.
+
+
+     public abstract class ornek {
+
+  // soyut sınıf metodu oluşturduk
+    public void cıktı() {
+      System.out.println("Kod kampüsüne hoş geldiniz.");    //kısacası arkaplan gibi düşün. işler burda yapılıyor main de çağırılıyor.
+  }
+  }
+  //ornek sınıfını miras alan bir main sınıfı oluşturduk
+    class Main extends ornek {
+
+     public static void main(String[] args) {
+
+      // main nesnnesi oluşturduk
+      Main main = new Main();
+      main.cıktı();
+  }
+}
+
+    -- Interface (arayüzler) --
+    Java’da arayüzler (Interfaces), yapısal olarak soyut sınıflara benzemektedirler.
+    Java’da arayüzler (Interfaces) ile soyut sınıflar arasındaki temel fark; soyut sınıflarda her metodu override etmek zorunda değildik.
+    Java’da arayüzlerde ise tanımladığımız her metot, kullanılan sınıflarda mutlaka override edilmelidir. Java’da arayüzler, sınıfların
+    bir görevi nasıl yapılacağını değil, görev yapılırken hangi adımları yapması gerektiğini belirtir.
+    Arayüzler aracılığıyla programda çoklu kalıtım (implements) uygulayabiliriz. kalıtım (extends) tek bir kere yapılıyordu.
+
+    interface kitap {
+
+    int syf = 189;
+
+    //gosterilmesi için soyut metot oluşturduk
+    void goster();
+    }
+
+    //kitap arayuzunu implements eden bir sınıf olusturduk.
+    class arayuz implements kitap {
+
+    //arayüzün özellikleri uygulandı.
+    @Override
+    public void goster() {
+        System.out.println("Fareler ve insanlar");
+    }
+
+    public static void main (String [] args) {
+        //nesnelerimizi oluşturduk
+        arayuz arayuz1 = new arayuz();
+
+        arayuz1.goster();
+        System.out.println("Sayfa sayısı = " +syf);
+
+    }
+
+}
